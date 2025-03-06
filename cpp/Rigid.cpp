@@ -30,6 +30,17 @@ ImageType::PointType getPhysicalPoint(const std::vector<float> voxelPoint,
   return physicalPoint;
 }
 
+// ImageType::PointType voxel2world(const vnl_vector<double>voxel,
+//   const itk::Matrix<double, 3, 3>& direction,
+//   const vnl_vector<double>& origin,
+//   const vnl_vector<double>& spacing) {
+//   vnl_vector<double> tmp(3);
+//   for (unsigned int i = 0; i < 3; i++) tmp[i] = voxel[i] * spacing[i];
+//   vnl_vector<double> world = direction.GetVnlMatrix() * tmp + origin;
+//   ImageType::PointType point{ world };
+//   return point;
+// }
+
 vnl_vector<double> world2voxel(const vnl_vector<double> world,
                                const itk::Matrix<double, 3, 3>& direction,
                                const vnl_vector<double>& origin,

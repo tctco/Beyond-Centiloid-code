@@ -2,6 +2,7 @@
 #include <tuple>
 #include <unordered_map>
 
+#include "common.h"
 #include "itkAffineTransform.h"
 #include "itkBinaryThresholdImageFilter.h"
 #include "itkCastImageFilter.h"
@@ -23,9 +24,6 @@
 #include "itkThresholdImageFilter.h"
 #include "onnxruntime_cxx_api.h"
 
-using ImageType = itk::Image<float, 3>;
-using DDFType = itk::Image<itk::Vector<double, 3>, 3>;
-using BinaryImageType = itk::Image<unsigned char, 3>;
 using TransformType = itk::AffineTransform<double, 3>;
 
 class Rigid {
