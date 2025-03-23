@@ -98,7 +98,7 @@ class AffineVoxelMorph(nn.Module):
         features = self.conv(moving_image)
         affine = self.affine_head([features], None)
         affine_warped = self.warp(moving_image, affine)
-        elastic_warped, ddf_image = self.vm(affine_warped, fixed_image)
+        elastic_warped, ddf_image = self.vm(affine_warped.detach(), fixed_image)
         return affine_warped, affine, elastic_warped, ddf_image
 
     def loss(self, pred, target):
